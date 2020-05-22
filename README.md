@@ -14,5 +14,7 @@ Challenge 3 : Rock Paper Scissors (Added score board and reset score button)
 Challenge 4 : Button Colors (Added extra color)
 
 Challenge 5 : Blackjack (Full 52 Deck from default 12 cards)
+
 Link for full deck code : https://wsvincent.com/javascript-object-oriented-deck-cards/ (small edit to work with challenge)
+
 Note : Challenge 6 with API is not added, will be in a separate project.
