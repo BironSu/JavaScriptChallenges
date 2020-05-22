@@ -11,7 +11,7 @@ function ageToDays(){
         document.getElementById('ageInDays').remove();
     }
     let birthYear = prompt('What year were you born?');
-    while (birthYear >= 2020 || !birthYear.match(numbers)) {
+    while (birthYear >= 2020 || !birthYear.match(numbers)){
         birthYear = prompt('What year were you born? Must be less than 2020 and numbers only!');
     }
 
@@ -24,9 +24,9 @@ function ageToDays(){
 }
 
 function resetAgeButton(){
-    if (document.getElementById('ageInDays') != null) {
+    if (document.getElementById('ageInDays') != null){
         document.getElementById('ageInDays').remove();
-    } else {
+    } else{
         alert('Nothing to remove!');
     }
 }
@@ -41,7 +41,7 @@ function generateCat(){
 }
 
 function resetCatButton(){
-    if(document.getElementById('generatedCats') != null) {
+    if (document.getElementById('generatedCats') != null) {
         document.getElementById('generatedCats').remove();
     }
 }
@@ -58,15 +58,15 @@ function rpsGame(yourChoice){
     rpsFrontEnd(playerChoice, botChoice, message);
 }
 
-function randToRpsInt() {
+function randToRpsInt(){
     return Math.floor(Math.random() * 3);
 }
 
-function numberToChoice(number) {
+function numberToChoice(number){
     return ['rock','paper','scissor'][number];
 }
 
-function decideWinner(yourChoice, botChoice) {
+function decideWinner(yourChoice, botChoice){
     let rpsDatabase = {
         'rock': {'scissor': 1, 'rock': 0.5, 'paper': 0},
         'paper': {'rock': 1, 'paper': 0.5, 'scissor': 0},
@@ -75,27 +75,27 @@ function decideWinner(yourChoice, botChoice) {
     return rpsDatabase[yourChoice][botChoice];
 }
 
-function finalMessage(yourScore) {
-    if (yourScore === 0) {
+function finalMessage(yourScore){
+    if (yourScore === 0){
         rpsScoreTracker('lose');
         return {'message' : 'You have lost!', 'color': 'red'};
-    } else if (yourScore === 0.5) {
+    } else if (yourScore === 0.5){
         return {'message': 'Draw!', 'color': 'yellow'};
-    } else {
+    } else{
         rpsScoreTracker('win');
         return {'message': 'You have won!', 'color': 'green'};
     };
 }
-function rpsScoreTracker(condition) {
-    if (condition === 'win') {
+function rpsScoreTracker(condition){
+    if (condition === 'win'){
         playerScore++;
         playerScoreBoard.textContent = 'Player Score: ' + playerScore;
-    } else if (condition === 'lose') {
+    } else if (condition === 'lose'){
         botScore++;
         botScoreBoard.textContent = 'Bot Score: ' + botScore;
     }
 }
-function rpsFrontEnd(playerChoice, botChoice, message) {
+function rpsFrontEnd(playerChoice, botChoice, message){
     let imagesDatabase = {
         'rock': document.getElementById('rock').src,
         'paper': document.getElementById('paper').src,
@@ -119,7 +119,7 @@ function rpsFrontEnd(playerChoice, botChoice, message) {
     createResultRPSImages('bot', imagesDatabase[botChoice], 'box-shadow: 0px 10px 50px rgba(247, 38, 24, 1);');
 }
 
-function createResultRPSImages(id, source, color) {
+function createResultRPSImages(id, source, color){
     let x = document.createElement('img');
     x.setAttribute('id', String(id));
     x.setAttribute('src', String(source));
@@ -129,7 +129,7 @@ function createResultRPSImages(id, source, color) {
     document.getElementById('flex-box-rps-div').appendChild(x);
 }
 
-function rpsPlayAgain() {
+function rpsPlayAgain(){
     document.getElementById('flex-box-rps-div').remove();
 
     let newDiv = document.createElement('div');
@@ -143,7 +143,7 @@ function rpsPlayAgain() {
     createDefaultRPSImages('scissor', '../images/RPS/Scissor.jpg');
 
 }
-function createDefaultRPSImages(id, source) {
+function createDefaultRPSImages(id, source){
     let x = document.createElement('img');
     x.setAttribute('id', String(id));
     x.setAttribute('src', String(source));
@@ -165,7 +165,7 @@ function rpsResetScore(){
 var allButtons = document.getElementsByTagName('button');
 var saveDefaultButtons = [];
 
-for (let i = 0; i < allButtons.length; i++) {
+for (let i = 0; i < allButtons.length; i++){
     saveDefaultButtons.push(allButtons[i].classList[1]);
 }
 
@@ -174,9 +174,9 @@ function buttonColorChange(buttonPressed){
         changeToRed();
     } else if (buttonPressed.value === 'green'){
         changeToGreen();
-    } else if (buttonPressed.value === 'reset') {
+    } else if (buttonPressed.value === 'reset'){
         resetButtonColor();
-    } else if (buttonPressed.value === 'random') {
+    } else if (buttonPressed.value === 'random'){
         randomButtonColor();
     }
 }
@@ -188,21 +188,21 @@ function changeToRed(){
     }
 }
 
-function changeToGreen() {
+function changeToGreen(){
     for (let i = 0; i < allButtons.length; i++){
         allButtons[i].classList.remove(allButtons[i].classList[1]);
         allButtons[i].classList.add('btn-success');
     }
 }
 
-function resetButtonColor() {
+function resetButtonColor(){
     for (let i = 0; i < allButtons.length; i++){
         allButtons[i].classList.remove(allButtons[i].classList[1]);
         allButtons[i].classList.add(saveDefaultButtons[i]);
     }
 }
 
-function randomButtonColor() {
+function randomButtonColor(){
     let choices = ['btn-primary', 'btn-success', 'btn-warning', 'btn-danger', 'btn-secondary']
     for (let i = 0; i < allButtons.length; i++){
         let randomNumber = Math.floor(Math.random() * choices.length);
@@ -225,6 +225,7 @@ let blackjackGame = {
         'score': 0
     },
     'cards': ['2','3','4','5','6','7','8','9','10','J','Q','K','A'],
+    'cardSuits' : ['C','D','H','S'],
     'cardsMap': {
         '2': 2, 
         '3': 3, 
@@ -234,7 +235,7 @@ let blackjackGame = {
         '7': 7,
         '8': 8,
         '9': 9, 
-        '10': 10, 
+        '1': 10, 
         'J': 10, 
         'Q': 10, 
         'K': 10, 
@@ -246,10 +247,41 @@ let blackjackGame = {
     'isStand': false,
     'turnsOver': false,
 };
-
+// CODE FROM https://wsvincent.com/javascript-object-oriented-deck-cards/ FOR CREATING FULL DECK
+class Deck{
+    constructor(){
+        this.deck = [];
+        this.reset();
+        this.shuffle();
+    }
+    reset(){
+        this.deck = [];
+    
+        const suits = ['H', 'S', 'C', 'D'];
+        const values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+    
+        for (let suit in suits){
+            for (let value in values){
+                this.deck.push(`${values[value]}${suits[suit]}`);
+            }
+        }
+    }
+    shuffle(){
+        const {deck} = this;
+        let m = deck.length, i;
+        while(m){
+            i = Math.floor(Math.random() * m--);
+            [deck[m], deck[i]] = [deck[i], deck[m]];
+        }
+        return this;
+    }
+    deal(){
+        return this.deck.pop();
+    }
+}
 const blackjackPlayer = blackjackGame['you'];
 const blackjackDealer = blackjackGame['dealer'];
-
+const fullDeck = new Deck();
 const hitSound = new Audio('../sounds/swish.m4a');
 const winSound = new Audio('../sounds/cash.mp3');
 const lossSound = new Audio('../sounds/aww.mp3');
@@ -258,11 +290,15 @@ document.querySelector('#blackjack-hit-button').addEventListener('click', blackj
 document.querySelector('#blackjack-stand-button').addEventListener('click', dealerLogic);
 document.querySelector('#blackjack-deal-button').addEventListener('click', blackjackDeal);
 
-function blackjackHit() {
+function blackjackHit(){
     if (blackjackGame['isStand'] === false){
-        let card = randomCard();
+        if (fullDeck.deck.length === 0){
+            fullDeck.reset();
+        }
+        let card = fullDeck.deal();
+        let cardValue = card[0];
         showCard(card, blackjackPlayer);
-        updateScore(card,blackjackPlayer);
+        updateScore(cardValue,blackjackPlayer);
         showScore(blackjackPlayer);
     }
 }
@@ -273,24 +309,24 @@ function randomCard(){
 }
 
 function showCard(card, activePlayer){
-    if (activePlayer['score'] <= 21) {
+    if (activePlayer['score'] <= 21){
         let cardImage = document.createElement('img');
-        cardImage.src = `../../images/blackjack/cards/${card}.png`;
+        cardImage.src = `../../images/cardsPNG/${card}.png`;
         document.querySelector(activePlayer['div']).appendChild(cardImage);
         hitSound.play();
     }
 }
 
 function blackjackDeal(){
-    if (blackjackGame['turnsOver'] === true) {
+    if (blackjackGame['turnsOver'] === true){
         let yourImages = document.querySelector('#blackjack-player-box').querySelectorAll('img');
         let dealerImages = document.querySelector('#blackjack-dealer-box').querySelectorAll('img');
 
-        for (let i = 0; i <yourImages.length; i++) {
+        for (let i = 0; i <yourImages.length; i++){
             yourImages[i].remove();
         }
 
-        for (let i = 0; i < dealerImages.length; i++) {
+        for (let i = 0; i < dealerImages.length; i++){
             dealerImages[i].remove();
         }
 
@@ -311,14 +347,14 @@ function blackjackDeal(){
     }
 }
 
-function updateScore(card, activePlayer) {
-    if (card === 'A') {
-        if (activePlayer['score'] + blackjackGame['cardsMap'][card][1] <= 21) {
+function updateScore(card, activePlayer){
+    if (card === 'A'){
+        if (activePlayer['score'] + blackjackGame['cardsMap'][card][1] <= 21){
             activePlayer['score'] += blackjackGame['cardsMap'][card][1];
-        } else {
+        } else{
             activePlayer['score'] += blackjackGame['cardsMap'][card][0];
         }
-    } else {
+    } else{
         activePlayer['score'] += blackjackGame['cardsMap'][card];
     }
 }
@@ -327,26 +363,30 @@ function showScore(activePlayer){
         document.querySelector(activePlayer['scoreSpan']).textContent = 'BUST!';
         document.querySelector(activePlayer['scoreSpan']).style.color = 'red';
         dealerLogic();
-    } else {
+    } else{
         document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];
     }
 }
 
-function sleep(ms) {
+function sleep(ms){
     return new Promise(resolve => setTimeout(resolve,ms));
 }
 
 async function dealerLogic(){
-    if (blackjackPlayer['score'] > 0 && blackjackGame['turnsOver'] === false && blackjackGame['isStand'] === false) {
+    if (blackjackPlayer['score'] > 0 && blackjackGame['turnsOver'] === false && blackjackGame['isStand'] === false){
         blackjackGame['isStand'] = true;
         await sleep(1000);
-        while (blackjackDealer['score'] <= 15 && blackjackGame['turnsOver'] === false) {
-            let card = randomCard();
+        while (blackjackDealer['score'] <= 15 && blackjackGame['turnsOver'] === false){
+            if (fullDeck.deck.length === 0){
+                fullDeck.reset();
+            }
+            let card = fullDeck.deal();
+            let cardValue = card[0];
             showCard(card, blackjackDealer);
-            updateScore(card,blackjackDealer);
+            updateScore(cardValue,blackjackDealer);
             showScore(blackjackDealer);
             await sleep(1000);
-            if (blackjackDealer['score'] >= 16) {
+            if (blackjackDealer['score'] >= 16){
                 blackjackGame['turnsOver'] = true;
                 let winner = computeWinner();
                 showResult(winner);
@@ -356,23 +396,23 @@ async function dealerLogic(){
     }
 }
 
-function computeWinner() {
+function computeWinner(){
     let winner;
-    if (blackjackPlayer['score'] <= 21 ) {
-        if(blackjackPlayer['score'] > blackjackDealer['score'] || blackjackDealer['score'] > 21) {
+    if (blackjackPlayer['score'] <= 21 ){
+        if (blackjackPlayer['score'] > blackjackDealer['score'] || blackjackDealer['score'] > 21){
             blackjackGame['wins']++;
             winner = blackjackPlayer;
-        } else if (blackjackPlayer['score'] < blackjackDealer['score']) {
+        } else if (blackjackPlayer['score'] < blackjackDealer['score']){
             blackjackGame['losses']++;
             winner = blackjackDealer;
         } else if (blackjackPlayer['score'] === blackjackDealer['score']){
             blackjackGame['draws']++;
         }
 
-    } else if (blackjackPlayer['score'] > 21 && blackjackDealer['score'] <= 21) {
+    } else if (blackjackPlayer['score'] > 21 && blackjackDealer['score'] <= 21){
         blackjackGame['losses']++;
         winner = blackjackDealer;
-    } else if (blackjackPlayer['score'] > 21 && blackjackDealer['score'] > 21) {
+    } else if (blackjackPlayer['score'] > 21 && blackjackDealer['score'] > 21){
         blackjackGame['draws']++;
     }
     return winner;
@@ -381,17 +421,17 @@ function computeWinner() {
 function showResult(winner){
     let message, messageColor;
     if (blackjackGame['turnsOver'] === true){
-        if (winner === blackjackPlayer) {
+        if (winner === blackjackPlayer){
             document.querySelector('#blackjack-wins').textContent = blackjackGame['wins'];
             message = 'You Won!';
             messageColor = 'green';
             winSound.play();
-        } else if (winner === blackjackDealer) {
+        } else if (winner === blackjackDealer){
             document.querySelector('#blackjack-losses').textContent = blackjackGame['losses'];
             message = 'You Lost!';
             messageColor = 'red';
             lossSound.play();
-        } else {
+        } else{
             document.querySelector('#blackjack-draws').textContent = blackjackGame['draws'];
             message = 'Draw!';
             messageColor = 'yellow';
