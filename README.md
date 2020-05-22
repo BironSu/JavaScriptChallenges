@@ -13,6 +13,6 @@ Challenge 3 : Rock Paper Scissors (Added score board and reset score button)
 
 Challenge 4 : Button Colors (Added extra color)
 
-Challenge 5 : Blackjack (Dummy proofed the game a bit more and plan to add full deck + change to better PNG images)
+Challenge 5 : Blackjack (Full 52 Deck from default 12 cards)
 
 Note : Challenge 6 with API is not added, will be in a separate project.
