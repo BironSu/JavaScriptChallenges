@@ -373,7 +373,7 @@ function sleep(ms){
 }
 
 async function dealerLogic(){
-    if (blackjackPlayer['score'] > 0 && blackjackGame['turnsOver'] === false && blackjackGame['isStand'] === false){
+    if (blackjackPlayer['score'] > 11 && blackjackGame['turnsOver'] === false && blackjackGame['isStand'] === false){
         blackjackGame['isStand'] = true;
         await sleep(1000);
         while (blackjackDealer['score'] <= 15 && blackjackGame['turnsOver'] === false){
